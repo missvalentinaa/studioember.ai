@@ -129,6 +129,20 @@ export function WaysToWork() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal delay={0.2}>
+        <div className="mx-auto mt-6 flex max-w-4xl flex-col items-center justify-between gap-4 rounded-[22px] border border-hairline bg-surface/60 px-6 py-5 backdrop-blur-sm sm:flex-row sm:text-left">
+          <div className="text-center sm:text-left">
+            <p className="font-medium tracking-tight text-ink">{waysToWork.fallback.title}</p>
+            <p className="mt-1 max-w-[46ch] text-[0.92rem] text-ink-soft">
+              {waysToWork.fallback.body}
+            </p>
+          </div>
+          <PillButton href={waysToWork.fallback.href} variant="ghost" arrow className="shrink-0">
+            {waysToWork.fallback.cta}
+          </PillButton>
+        </div>
+      </Reveal>
     </Section>
   );
 }

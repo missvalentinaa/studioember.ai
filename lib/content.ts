@@ -47,6 +47,11 @@ export const whatWeBuild = {
       points: ["Connected to your stack", "Takes approved actions", "Not a bottom-right chatbot"],
     },
   ],
+  outcomes: [
+    { value: "1–2wk", label: "From kickoff to a shipped, premium site" },
+    { value: "70%", label: "Fewer repetitive tickets once an agent is live" },
+    { value: "0", label: "Handoffs between strategy, design and code" },
+  ],
 };
 
 export const problem = {
@@ -74,6 +79,7 @@ export const work = {
       client: "Fintech infrastructure",
       tags: ["Positioning", "Website", "Development"],
       palette: ["#7c5cff", "#c2298a", "#ff6b35"],
+      stat: { value: "+38%", label: "Demo requests after launch" },
     },
     {
       index: "02",
@@ -81,6 +87,7 @@ export const work = {
       client: "Developer tooling",
       tags: ["Brand direction", "Product story", "Launch site"],
       palette: ["#ff6b35", "#ff8a4c", "#e5484d"],
+      stat: { value: "9 days", label: "Idea to public launch" },
     },
     {
       index: "03",
@@ -88,6 +95,7 @@ export const work = {
       client: "B2B operations",
       tags: ["Agent design", "Integrations", "Automation"],
       palette: ["#c2298a", "#7c5cff", "#ff8a4c"],
+      stat: { value: "12hrs/wk", label: "Manual work removed" },
     },
   ],
 };
@@ -129,6 +137,12 @@ export const waysToWork = {
       featured: false,
     },
   ],
+  fallback: {
+    title: "Not sure which one fits?",
+    body: "Tell us where the project stands and we'll point you to the right path — no pitch, just a straight answer.",
+    cta: "Book a call",
+    href: "#contact",
+  },
 };
 
 export const aiPart = {
@@ -152,30 +166,30 @@ export const aiPart = {
   ],
   ruleA: "If it only talks, it's probably a chatbot.",
   ruleB: "If it completes useful work, it's getting closer.",
-};
-
-export const whyEmber = {
-  label: "Why Ember — 06",
-  heading: "One studio. The whole build.",
-  body: "Strategy, copy, design, development and AI stay connected from the first idea to the final deployment. Fewer handoffs, fewer meetings, less context lost between people.",
-  pillars: [
-    {
-      tag: "Taste",
-      body: "The work should feel considered — not generated from the same template as everybody else.",
-    },
-    {
-      tag: "Technical ability",
-      body: "The design is built properly, not handed over and slowly diluted.",
-    },
-    {
-      tag: "Speed",
-      body: "AI helps us research, explore and ship faster. It doesn't get to make the final taste decisions.",
-    },
-  ],
+  demo: {
+    caption: "A support agent, mid-conversation",
+    steps: [
+      {
+        status: "Received",
+        from: "Customer",
+        message: "My March invoice never came through — can you resend it?",
+      },
+      {
+        status: "Working",
+        from: "Agent",
+        message: "Looking up the billing record and checking what failed…",
+      },
+      {
+        status: "Resolved",
+        from: "Agent",
+        message: "Found it — resent invoice #4471 and applied a 3-day extension.",
+      },
+    ],
+  },
 };
 
 export const process = {
-  label: "How it works — 07",
+  label: "How it works — 06",
   heading: "A simple process.",
   steps: [
     {
@@ -197,11 +211,11 @@ export const process = {
 };
 
 export const about = {
-  label: "About — 08",
+  label: "About — 07",
   kicker: "Small studio. Serious output.",
   heading: "Built for ambitious startups.",
   body: [
-    "Ember Studio is an independent web and AI company led by Indi Caburian across positioning, design, development and AI systems.",
+    "Ember Studio is an independent web and AI company led by Indi & Karyn Caburian across positioning, design, development and AI systems.",
     "The studio stays intentionally focused: direct collaboration, fewer projects, and no account-management layer between the conversation and the work.",
     "The goal isn't to look busy. It's to build something good and ship it.",
   ],
@@ -213,7 +227,7 @@ export const about = {
 };
 
 export const finalCta = {
-  label: "Start — 09",
+  label: "Start — 08",
   heading: "Build the version people take seriously.",
   body: "Bring us the product, the temporary website, and the repetitive work your team shouldn't still be doing manually. We'll turn them into something sharper.",
   note: "Currently accepting a small number of new projects.",

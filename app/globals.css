@@ -228,6 +228,30 @@ body {
   animation: marquee 38s linear infinite;
 }
 
+/* Slow-moving gradient field — used behind the AI demo card */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  background-size: 260% 260%;
+  animation: gradient-flow 18s ease-in-out infinite;
+}
+
 /* ------------------------------------------------------------------ *
  *  Focus + reduced motion
  * ------------------------------------------------------------------ */

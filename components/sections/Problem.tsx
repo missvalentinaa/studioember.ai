@@ -1,10 +1,33 @@
 "use client";
 
+import { motion, type Variants } from "framer-motion";
 import { problem } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { EmberOrb } from "@/components/ui/EmberOrb";
+
+const check = (
+  <svg width="11" height="11" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path
+      d="M3 8.5l3.2 3.2L13 5"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+/** Inherits hidden/visible from the parent RevealItem — pops in just after the row fades in. */
+const markVariants: Variants = {
+  hidden: { scale: 0.3, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: { duration: 0.4, delay: 0.25, ease: [0.34, 1.56, 0.64, 1] },
+  },
+};
 
 export function Problem() {
   return (
@@ -36,10 +59,13 @@ export function Problem() {
             {problem.points.map((p) => (
               <RevealItem key={p}>
                 <div className="flex items-start gap-4 py-5">
-                  <span
-                    className="mt-1.5 h-2 w-2 shrink-0 rounded-full"
+                  <motion.span
+                    variants={markVariants}
+                    className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-white"
                     style={{ background: "var(--ember-gradient)" }}
-                  />
+                  >
+                    {check}
+                  </motion.span>
                   <span className="text-[1.05rem] text-ink">{p}</span>
                 </div>
               </RevealItem>

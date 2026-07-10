@@ -46,8 +46,8 @@ export function Footer() {
           aria-label="Back to top"
           className="block select-none pb-10 text-center"
         >
-          <span className="display block bg-clip-text text-[clamp(3rem,15vw,11rem)] leading-none text-transparent [-webkit-text-fill-color:transparent]"
-            style={{ backgroundImage: "linear-gradient(180deg, #ece6df 0%, #f6f2ec 100%)" }}
+          <span
+            className="ember-text display block text-[clamp(3rem,15vw,11rem)] leading-none"
           >
             studioember.ai
           </span>

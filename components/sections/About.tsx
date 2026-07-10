@@ -44,7 +44,7 @@ export function About() {
                 <EmberMark className="h-7 w-7" />
               </div>
               <p className="mt-6 text-xl font-medium tracking-tight text-ink">
-                Led by Indi Caburian
+                Led by Indi & Karyn Caburian
               </p>
               <p className="mt-2 text-ink-soft">
                 Positioning · Design · Development · AI systems

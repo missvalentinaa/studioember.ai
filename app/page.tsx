@@ -6,7 +6,6 @@ import { Problem } from "@/components/sections/Problem";
 import { Work } from "@/components/sections/Work";
 import { WaysToWork } from "@/components/sections/WaysToWork";
 import { AIPart } from "@/components/sections/AIPart";
-import { WhyEmber } from "@/components/sections/WhyEmber";
 import { Process } from "@/components/sections/Process";
 import { About } from "@/components/sections/About";
 import { FinalCTA } from "@/components/sections/FinalCTA";
@@ -25,7 +24,6 @@ export default function Home() {
         <Work />
         <WaysToWork />
         <AIPart />
-        <WhyEmber />
         <Process />
         <About />
         <FinalCTA />

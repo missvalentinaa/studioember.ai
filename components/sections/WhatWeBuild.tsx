@@ -117,6 +117,21 @@ export function WhatWeBuild() {
           </GlassCard>
         </Reveal>
       </div>
+
+      <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-10 border-t border-hairline pt-12 text-center sm:grid-cols-3">
+        {whatWeBuild.outcomes.map((o, i) => (
+          <Reveal key={o.label} delay={i * 0.06}>
+            <div className="sm:border-l sm:border-hairline sm:first:border-l-0">
+              <div className="ember-text animate-gradient-flow text-[3.2rem] font-semibold tracking-tight sm:text-[3.6rem]">
+                {o.value}
+              </div>
+              <p className="mx-auto mt-2 max-w-[24ch] text-[0.92rem] leading-snug text-ink-soft">
+                {o.label}
+              </p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
     </Section>
   );
 }
