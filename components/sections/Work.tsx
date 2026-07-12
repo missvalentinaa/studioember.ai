@@ -54,19 +54,36 @@ function StackCard({
           aria-label={`${project.title} — view project`}
         >
           <div className="relative h-[64vh] min-h-[420px] w-full overflow-hidden rounded-[28px] border border-hairline shadow-[0_40px_70px_-45px_rgba(60,50,45,0.35)] sm:h-[70vh]">
-            {/* generated cover art */}
+            {/* cover art */}
             <div
-              className="absolute inset-0 scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
-              style={{ background: cover(project.palette) }}
+              className="absolute inset-0 scale-105 bg-cover bg-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+              style={
+                project.cover
+                  ? { backgroundImage: `url(${project.cover})` }
+                  : { background: cover(project.palette) }
+              }
             />
-            {/* floating drift orb inside */}
-            <div
-              className="absolute left-1/2 top-1/2 h-2/3 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl animate-drift-slow"
-              style={{
-                background: `radial-gradient(circle at 40% 35%, #ffe4c4, ${project.palette[0]} 30%, ${project.palette[1]} 60%, transparent 75%)`,
-              }}
-            />
-            <div className="absolute inset-0 bg-white/20" />
+            {!project.cover && (
+              <>
+                {/* floating drift orb inside */}
+                <div
+                  className="absolute left-1/2 top-1/2 h-2/3 w-2/3 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70 blur-3xl animate-drift-slow"
+                  style={{
+                    background: `radial-gradient(circle at 40% 35%, #ffe4c4, ${project.palette[0]} 30%, ${project.palette[1]} 60%, transparent 75%)`,
+                  }}
+                />
+                <div className="absolute inset-0 bg-white/20" />
+              </>
+            )}
+            {project.cover && (
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.05) 28%, rgba(0,0,0,0.05) 58%, rgba(0,0,0,0.6) 100%)",
+                }}
+              />
+            )}
 
             {/* top row */}
             <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 sm:p-8">

@@ -80,6 +80,7 @@ export const work = {
       tags: ["Positioning", "Website", "Development"],
       palette: ["#9640a8", "#9640a8", "#9640a8"],
       stat: { value: "+38%", label: "Demo requests after launch" },
+      cover: "/work/card-01-cover.jpg",
     },
     {
       index: "02",
@@ -88,6 +89,7 @@ export const work = {
       tags: ["Brand direction", "Product story", "Launch site"],
       palette: ["#cb72b8", "#cb72b8", "#cb72b8"],
       stat: { value: "9 days", label: "Idea to public launch" },
+      cover: "/work/card-02-cover.jpg",
     },
     {
       index: "03",
@@ -96,6 +98,7 @@ export const work = {
       tags: ["Agent design", "Integrations", "Automation"],
       palette: ["#e77a94", "#e77a94", "#e77a94"],
       stat: { value: "12hrs/wk", label: "Manual work removed" },
+      cover: "/work/card-03-cover.jpg",
     },
   ],
 };
