@@ -186,7 +186,9 @@ function ScrollSequence({ launchSprint, continuum }: { launchSprint: Plan; conti
 
   // Heading zooms in, pauses centered, then docks up toward the top of the
   // frame and stays put — it never fades out, so once the prompt pill and
-  // cards animate in beneath it, everything is visible together.
+  // cards animate in beneath it, everything is visible together. The eyebrow
+  // above it fades out over the same docking window so it — and the search
+  // pill's blurred glow rising from beneath — never overlap the heading.
   const headingOpacity = useTransform(progress, [0, ZOOM_END], [0, 1], { clamp: true });
   const headingScale = useTransform(
     progress,
@@ -194,9 +196,10 @@ function ScrollSequence({ launchSprint, continuum }: { launchSprint: Plan; conti
     [0.86, 1.08, 1.08, 0.7],
     { clamp: true },
   );
-  const headingY = useTransform(progress, [PAUSE_END, FADE_END], ["0vh", "-29vh"], {
+  const headingY = useTransform(progress, [PAUSE_END, FADE_END], ["0vh", "-36vh"], {
     clamp: true,
   });
+  const eyebrowOpacity = useTransform(progress, [PAUSE_END, FADE_END], [1, 0], { clamp: true });
   const headingPointerEvents = useTransform(headingScale, (s) => (s > 0.9 ? "auto" : "none"));
 
   const sceneOpacity = useTransform(progress, [FADE_END, BAR_END], [0, 1], { clamp: true });
@@ -252,7 +255,9 @@ function ScrollSequence({ launchSprint, continuum }: { launchSprint: Plan; conti
           }}
           className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-5 text-center"
         >
-          <MonoLabel>{waysToWork.label}</MonoLabel>
+          <motion.div style={{ opacity: eyebrowOpacity }}>
+            <MonoLabel>{waysToWork.label}</MonoLabel>
+          </motion.div>
           <h2 className="display text-[clamp(2rem,5.2vw,3.6rem)] max-w-[20ch]">
             {waysToWork.heading}
           </h2>

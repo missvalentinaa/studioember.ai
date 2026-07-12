@@ -14,7 +14,7 @@ function cover(palette: string[]) {
   return `radial-gradient(120% 120% at 22% 18%, ${a} 0%, transparent 52%),
           radial-gradient(110% 110% at 82% 26%, ${b} 0%, transparent 48%),
           radial-gradient(130% 130% at 60% 96%, ${c} 0%, transparent 60%),
-          linear-gradient(160deg, #1a1614, #2a211d)`;
+          linear-gradient(160deg, color-mix(in srgb, ${a} 38%, #fff6ec), color-mix(in srgb, ${c} 24%, #f7f1ea))`;
 }
 
 /** Base sticky offset (clears the floating nav) + per-card step so the deck
@@ -53,7 +53,7 @@ function StackCard({
           className="group block focus-visible:outline-none"
           aria-label={`${project.title} — view project`}
         >
-          <div className="relative h-[64vh] min-h-[420px] w-full overflow-hidden rounded-[28px] border border-hairline shadow-[0_50px_90px_-50px_rgba(26,22,20,0.5)] sm:h-[70vh]">
+          <div className="relative h-[64vh] min-h-[420px] w-full overflow-hidden rounded-[28px] border border-hairline shadow-[0_40px_70px_-45px_rgba(60,50,45,0.35)] sm:h-[70vh]">
             {/* generated cover art */}
             <div
               className="absolute inset-0 scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
