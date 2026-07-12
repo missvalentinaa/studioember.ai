@@ -25,10 +25,10 @@ export function EmberMark({ className }: { className?: string }) {
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
       <defs>
         <linearGradient id="ember-mark" x1="4" y1="21" x2="20" y2="3" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#ff8a4c" />
-          <stop offset="0.45" stopColor="#ff6b35" />
-          <stop offset="0.75" stopColor="#c2298a" />
-          <stop offset="1" stopColor="#7c5cff" />
+          <stop offset="0" stopColor="#f4c0c7" />
+          <stop offset="0.45" stopColor="#f9a074" />
+          <stop offset="0.75" stopColor="#cb72b8" />
+          <stop offset="1" stopColor="#9640a8" />
         </linearGradient>
       </defs>
       <path

@@ -78,7 +78,7 @@ export const work = {
       title: "A clearer story for a complex product.",
       client: "Fintech infrastructure",
       tags: ["Positioning", "Website", "Development"],
-      palette: ["#7c5cff", "#c2298a", "#ff6b35"],
+      palette: ["#9640a8", "#9640a8", "#9640a8"],
       stat: { value: "+38%", label: "Demo requests after launch" },
     },
     {
@@ -86,7 +86,7 @@ export const work = {
       title: "A premium launch for an early-stage startup.",
       client: "Developer tooling",
       tags: ["Brand direction", "Product story", "Launch site"],
-      palette: ["#ff6b35", "#ff8a4c", "#e5484d"],
+      palette: ["#cb72b8", "#cb72b8", "#cb72b8"],
       stat: { value: "9 days", label: "Idea to public launch" },
     },
     {
@@ -94,7 +94,7 @@ export const work = {
       title: "An AI workflow that gave the team its time back.",
       client: "B2B operations",
       tags: ["Agent design", "Integrations", "Automation"],
-      palette: ["#c2298a", "#7c5cff", "#ff8a4c"],
+      palette: ["#e77a94", "#e77a94", "#e77a94"],
       stat: { value: "12hrs/wk", label: "Manual work removed" },
     },
   ],
@@ -106,6 +106,7 @@ export const waysToWork = {
   plans: [
     {
       name: "Launch Sprint",
+      prompt: "a premium web build",
       title: "Go from nearly ready to properly launched.",
       body: "A focused engagement for startups preparing to launch, raise, or upgrade their presence.",
       includes: [
@@ -122,6 +123,7 @@ export const waysToWork = {
     },
     {
       name: "The Continuum",
+      prompt: "an ai agent for my startup",
       title: "Your ongoing web and AI team.",
       body: "For startups that need regular design, development and AI work without building a full internal team.",
       includes: [

@@ -20,11 +20,11 @@
   --color-faint: #b8afa7;
 
   /* Ember spectrum */
-  --color-ember: #ff6b35;
-  --color-ember-2: #ff8a4c;
-  --color-coral: #e5484d;
-  --color-magenta: #c2298a;
-  --color-violet: #7c5cff;
+  --color-ember: #f9a074;
+  --color-ember-2: #f4c0c7;
+  --color-coral: #e77a94;
+  --color-magenta: #cb72b8;
+  --color-violet: #9640a8;
 
   /* Lines */
   --color-hairline: #ece6df;
@@ -44,10 +44,10 @@
 :root {
   --ember-gradient: linear-gradient(
     100deg,
-    #7c5cff 0%,
-    #c2298a 34%,
-    #ff6b35 72%,
-    #ff8a4c 100%
+    #9640a8 0%,
+    #cb72b8 34%,
+    #f9a074 72%,
+    #f4c0c7 100%
   );
   color-scheme: light;
 }
@@ -72,7 +72,7 @@ body {
 }
 
 ::selection {
-  background: #ff6b3533;
+  background: #f9a07433;
   color: var(--color-ink);
 }
 

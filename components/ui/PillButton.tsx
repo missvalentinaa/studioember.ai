@@ -4,7 +4,7 @@ import { useRef, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { clsx } from "@/lib/clsx";
 
-type Variant = "primary" | "ghost" | "dark";
+type Variant = "primary" | "ghost" | "dark" | "ghost-glow";
 
 const base =
   "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium tracking-tight transition-colors duration-200 will-change-transform focus-visible:outline-none";
@@ -14,6 +14,10 @@ const styles: Record<Variant, string> = {
   ghost:
     "border border-hairline-2 bg-surface/60 text-ink backdrop-blur-sm hover:border-ink/25 hover:bg-surface",
   dark: "bg-ink text-canvas hover:bg-ink-soft",
+  /** Ghost that lights up with the animated ember gradient on hover — for a
+   *  single quiet CTA that should still invite a click. */
+  "ghost-glow":
+    "border border-hairline-2 bg-surface/60 text-ink backdrop-blur-sm transition-colors duration-500 hover:border-transparent hover:text-white",
 };
 
 type PillButtonProps = {
@@ -65,6 +69,13 @@ export function PillButton({
       )}
       {variant === "primary" && (
         <span className="absolute inset-0 rounded-full bg-white/0 transition-colors duration-200 group-hover:bg-white/10" />
+      )}
+      {variant === "ghost-glow" && (
+        <span
+          aria-hidden="true"
+          className="animate-gradient-flow absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          style={{ background: "var(--ember-gradient)" }}
+        />
       )}
       <span className="relative z-10 inline-flex items-center gap-2">
         {children}

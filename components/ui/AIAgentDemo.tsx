@@ -8,7 +8,7 @@ const STEP_MS = 3400;
 
 const statusColor: Record<string, string> = {
   Received: "#8a817b",
-  Working: "#ff8a4c",
+  Working: "#f4c0c7",
   Resolved: "#22a06b",
 };
 

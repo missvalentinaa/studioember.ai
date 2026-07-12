@@ -4,13 +4,13 @@ type Variant = "ember" | "violet" | "coral" | "spectrum";
 
 const gradients: Record<Variant, string> = {
   spectrum:
-    "radial-gradient(circle at 38% 34%, #ffcf9e 0%, #ff8a4c 16%, #ff6b35 32%, #e5484d 50%, #c2298a 68%, #7c5cff 86%, rgba(124,92,255,0) 100%)",
+    "radial-gradient(circle at 38% 34%, #ffcf9e 0%, #f4c0c7 16%, #f9a074 32%, #e77a94 50%, #cb72b8 68%, #9640a8 86%, rgba(124,92,255,0) 100%)",
   ember:
-    "radial-gradient(circle at 40% 36%, #ffd9b0 0%, #ff8a4c 22%, #ff6b35 44%, #e5484d 70%, rgba(229,72,77,0) 100%)",
+    "radial-gradient(circle at 40% 36%, #ffd9b0 0%, #f4c0c7 22%, #f9a074 44%, #e77a94 70%, rgba(229,72,77,0) 100%)",
   violet:
-    "radial-gradient(circle at 42% 38%, #d6c9ff 0%, #a48bff 24%, #7c5cff 48%, #c2298a 78%, rgba(194,41,138,0) 100%)",
+    "radial-gradient(circle at 42% 38%, #d6c9ff 0%, #a48bff 24%, #9640a8 48%, #cb72b8 78%, rgba(194,41,138,0) 100%)",
   coral:
-    "radial-gradient(circle at 40% 38%, #ffc0a0 0%, #ff8a4c 26%, #e5484d 52%, #c2298a 80%, rgba(194,41,138,0) 100%)",
+    "radial-gradient(circle at 40% 38%, #ffc0a0 0%, #f4c0c7 26%, #e77a94 52%, #cb72b8 80%, rgba(194,41,138,0) 100%)",
 };
 
 type EmberOrbProps = {

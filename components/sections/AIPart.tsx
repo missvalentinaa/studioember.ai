@@ -34,7 +34,7 @@ export function AIPart() {
             className="animate-gradient-flow pointer-events-none absolute -inset-4 rounded-[40px] opacity-70 blur-2xl sm:-inset-6"
             style={{
               backgroundImage:
-                "linear-gradient(120deg, #7c5cff 0%, #c2298a 25%, #ff6b35 50%, #ff8a4c 75%, #7c5cff 100%)",
+                "linear-gradient(120deg, #9640a8 0%, #cb72b8 25%, #f9a074 50%, #f4c0c7 75%, #9640a8 100%)",
             }}
           />
           <div
@@ -42,7 +42,7 @@ export function AIPart() {
             className="animate-gradient-flow pointer-events-none absolute -inset-2 rounded-[36px] opacity-90"
             style={{
               backgroundImage:
-                "linear-gradient(120deg, #7c5cff 0%, #c2298a 25%, #ff6b35 50%, #ff8a4c 75%, #7c5cff 100%)",
+                "linear-gradient(120deg, #9640a8 0%, #cb72b8 25%, #f9a074 50%, #f4c0c7 75%, #9640a8 100%)",
               animationDuration: "22s",
             }}
           />

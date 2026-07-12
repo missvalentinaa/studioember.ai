@@ -10,8 +10,8 @@ const Sparkle = () => (
     />
     <defs>
       <linearGradient id="spark" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#7c5cff" />
-        <stop offset="1" stopColor="#c2298a" />
+        <stop stopColor="#9640a8" />
+        <stop offset="1" stopColor="#cb72b8" />
       </linearGradient>
     </defs>
   </svg>
@@ -68,7 +68,7 @@ export function AIReplyCard() {
           >
             <path
               d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
-              stroke="#7c5cff"
+              stroke="#9640a8"
               strokeWidth="1.6"
               strokeLinecap="round"
               strokeLinejoin="round"

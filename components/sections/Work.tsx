@@ -66,7 +66,7 @@ function StackCard({
                 background: `radial-gradient(circle at 40% 35%, #ffe4c4, ${project.palette[0]} 30%, ${project.palette[1]} 60%, transparent 75%)`,
               }}
             />
-            <div className="absolute inset-0 bg-black/10" />
+            <div className="absolute inset-0 bg-white/20" />
 
             {/* top row */}
             <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6 sm:p-8">
