@@ -15,7 +15,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={clsx("relative scroll-mt-24 py-24 sm:py-32 lg:py-40", className)}
+      className={clsx("relative scroll-mt-24 py-16 sm:py-20 lg:py-24", className)}
     >
       {container ? (
         <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">{children}</div>

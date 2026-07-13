@@ -22,7 +22,7 @@ const check = (
 
 export function WhatWeBuild() {
   return (
-    <Section id="services" className="pt-16 sm:pt-20 lg:pt-24 pb-14 sm:pb-16 lg:pb-20">
+    <Section id="services">
       <SectionHeading
         label={whatWeBuild.label}
         title={

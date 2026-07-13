@@ -31,7 +31,7 @@ const markVariants: Variants = {
 
 export function Problem() {
   return (
-    <Section className="overflow-hidden pt-14 sm:pt-16 lg:pt-20">
+    <Section className="overflow-hidden">
       <EmberOrb
         variant="ember"
         className="right-[-14%] top-[10%] h-[420px] w-[420px] opacity-20"

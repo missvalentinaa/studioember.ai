@@ -22,7 +22,7 @@ export const hero = {
   eyebrow: "A web & AI studio for startups",
   lines: ["Look funded.", "Operate like it too."],
   emphasis: "funded",
-  body: "We design premium startup websites and build AI agents that handle real work. One studio for strategy, design, code and AI — no handoffs, no unnecessary theatre.",
+  body: "We design premium startup websites and build AI agents that handle real work. One studio for strategy, design, code and AI.",
   primary: { label: "Start a project", href: "#contact" },
   secondary: { label: "See the work", href: "#work" },
   note: "Built with taste. Shipped at speed.",
