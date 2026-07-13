@@ -22,7 +22,7 @@ const GLOW_GRADIENT =
   "linear-gradient(120deg, #9640a8 0%, #cb72b8 25%, #f9a074 50%, #f4c0c7 75%, #9640a8 100%)";
 
 // Scroll-progress bands (0 → 1 across the whole pinned track).
-const ZOOM_END = 0.07;
+const ZOOM_END = 0.03;
 const PAUSE_END = 0.14;
 const FADE_END = 0.19;
 const BAR_END = 0.23;

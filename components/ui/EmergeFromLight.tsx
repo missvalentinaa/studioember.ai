@@ -13,7 +13,7 @@ export function EmergeFromLight({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "start 40%"],
+    offset: ["start end", "start 55%"],
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);

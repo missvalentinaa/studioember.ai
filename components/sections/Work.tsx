@@ -150,7 +150,7 @@ export function Work() {
   });
 
   return (
-    <Section id="work">
+    <Section id="work" className="pb-14 sm:pb-16 lg:pb-20">
       <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
         <SectionHeading label={work.label} title={work.heading} className="max-w-2xl" />
         <Reveal delay={0.1}>

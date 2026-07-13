@@ -78,7 +78,7 @@ function ScrollHeroMotion() {
   const veilOpacity = useTransform(p, [0.9, 1], [0, 1]);
 
   return (
-    <section id="top" ref={trackRef} className="relative h-[300svh]">
+    <section id="top" ref={trackRef} className="relative h-[240svh]">
       <div className="sticky top-0 flex h-[100svh] items-center justify-center overflow-hidden px-5">
         {/* Hand-rising frame sequence */}
         <motion.div
