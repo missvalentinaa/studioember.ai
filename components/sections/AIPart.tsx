@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { aiPart } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -27,8 +28,31 @@ export function AIPart() {
         align="center"
       />
 
+      {/* Laptop mockup with the agent card sat on the screen — large viewports only,
+          since the screen area gets too small to hold readable text below ~1024px. */}
       <Reveal delay={0.08}>
-        <div className="relative mx-auto mt-16 max-w-2xl">
+        <div className="relative mx-auto mt-8 hidden w-full max-w-2xl lg:block">
+          <Image
+            src="/software/laptop-gradient-screen.png"
+            alt="Laptop displaying a soft gradient screen"
+            width={1074}
+            height={734}
+            className="h-auto w-full select-none"
+            priority={false}
+          />
+          <div
+            className="absolute flex items-center justify-center"
+            style={{ top: "5%", bottom: "22.6%", left: "13.3%", right: "13.8%" }}
+          >
+            <div className="w-[82%] max-w-[420px]">
+              <AIAgentDemo compact />
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.08}>
+        <div className="relative mx-auto mt-16 max-w-2xl lg:hidden">
           <div
             aria-hidden="true"
             className="animate-gradient-flow pointer-events-none absolute -inset-4 rounded-[40px] opacity-70 blur-2xl sm:-inset-6"

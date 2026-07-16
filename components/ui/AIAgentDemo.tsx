@@ -15,7 +15,13 @@ const statusColor: Record<string, string> = {
 /** Fades + rises in on mount via a plain CSS transition — no AnimatePresence,
  *  so a rapid string of step changes (auto-advance + fast clicking) can never
  *  leave an exit animation's promise unresolved. */
-function Message({ step }: { step: (typeof aiPart.demo.steps)[number] }) {
+function Message({
+  step,
+  compact,
+}: {
+  step: (typeof aiPart.demo.steps)[number];
+  compact?: boolean;
+}) {
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
@@ -32,11 +38,13 @@ function Message({ step }: { step: (typeof aiPart.demo.steps)[number] }) {
       )}
     >
       <div
-        className={
+        className={clsx(
+          "max-w-[85%] rounded-2xl leading-relaxed shadow-sm",
+          compact ? "px-3.5 py-2.5 text-[0.78rem]" : "px-[1.125rem] py-3.5 text-[0.95rem]",
           step.from === "Customer"
-            ? "max-w-[85%] rounded-2xl rounded-tr-sm bg-white px-[1.125rem] py-3.5 text-[0.95rem] leading-relaxed text-ink-soft shadow-sm"
-            : "max-w-[85%] rounded-2xl rounded-tl-sm bg-white px-[1.125rem] py-3.5 text-[0.95rem] leading-relaxed text-ink shadow-sm"
-        }
+            ? "rounded-tr-sm bg-white text-ink-soft"
+            : "rounded-tl-sm bg-white text-ink",
+        )}
       >
         {step.message}
       </div>
@@ -44,7 +52,7 @@ function Message({ step }: { step: (typeof aiPart.demo.steps)[number] }) {
   );
 }
 
-export function AIAgentDemo() {
+export function AIAgentDemo({ compact = false }: { compact?: boolean }) {
   const steps = aiPart.demo.steps;
   const [active, setActive] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -67,9 +75,21 @@ export function AIAgentDemo() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-[26px] border border-hairline bg-surface/80 p-7 shadow-[0_40px_80px_-40px_rgba(26,22,20,0.35)] backdrop-blur-sm sm:p-10">
+    <div
+      className={clsx(
+        "relative overflow-hidden rounded-[26px] border border-hairline bg-surface/80 shadow-[0_40px_80px_-40px_rgba(26,22,20,0.35)] backdrop-blur-sm",
+        compact ? "p-5 sm:p-6" : "p-7 sm:p-10",
+      )}
+    >
       <div className="flex items-center justify-between">
-        <span className="mono-label">{aiPart.demo.caption}</span>
+        <span
+          className={clsx(
+            "mono-label whitespace-nowrap",
+            compact && "!text-[0.6rem] !tracking-[0.12em]",
+          )}
+        >
+          {aiPart.demo.caption}
+        </span>
         <div className="flex items-center gap-2">
           {steps.map((s, i) => (
             <button
@@ -92,19 +112,31 @@ export function AIAgentDemo() {
         </div>
       </div>
 
-      <div className="relative mt-8 h-[180px] overflow-hidden rounded-2xl border border-hairline bg-surface-2/50 p-5 sm:h-[160px] sm:p-6">
-        <Message key={active} step={step} />
+      <div
+        className={clsx(
+          "relative overflow-hidden rounded-2xl border border-hairline bg-surface-2/50",
+          compact ? "mt-4 h-[104px] p-4" : "mt-8 h-[180px] p-5 sm:h-[160px] sm:p-6",
+        )}
+      >
+        <Message key={active} step={step} compact={compact} />
       </div>
 
-      <div className="mt-6 flex items-center justify-between">
-        <span className="flex items-center gap-2 text-[0.85rem] font-medium text-ink">
+      <div className={clsx("flex items-center justify-between", compact ? "mt-4" : "mt-6")}>
+        <span
+          className={clsx(
+            "flex items-center gap-2 font-medium text-ink",
+            compact ? "text-[0.75rem]" : "text-[0.85rem]",
+          )}
+        >
           <span
             className="h-2 w-2 rounded-full"
             style={{ background: statusColor[step.status] }}
           />
           {step.status}
         </span>
-        <span className="text-[0.8rem] text-muted">{step.from}</span>
+        <span className={clsx("text-muted", compact ? "text-[0.7rem]" : "text-[0.8rem]")}>
+          {step.from}
+        </span>
       </div>
     </div>
   );
