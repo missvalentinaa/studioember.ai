@@ -105,11 +105,13 @@ export const work = {
 
 export const waysToWork = {
   label: "Ways to work — 04",
-  heading: "Two ways to build with Ember.",
+  heading: "Two ways to look Series-A ready.",
   plans: [
     {
       name: "Launch Sprint",
-      prompt: "a premium web build",
+      cadence: "ONE-TIME",
+      includesLabel: "You get:",
+      theme: "light",
       title: "Go from nearly ready to properly launched.",
       body: "A focused engagement for startups preparing to launch, raise, or upgrade their presence.",
       includes: [
@@ -122,11 +124,12 @@ export const waysToWork = {
       meta: "Typical timeline: 1–2 weeks",
       price: "Projects from £4,000",
       cta: "Start a Launch Sprint",
-      featured: true,
     },
     {
       name: "The Continuum",
-      prompt: "an ai agent for my startup",
+      cadence: "MONTHLY",
+      includesLabel: "Use it for:",
+      theme: "dark",
       title: "Your ongoing web and AI team.",
       body: "For startups that need regular design, development and AI work without building a full internal team.",
       includes: [
@@ -139,7 +142,6 @@ export const waysToWork = {
       meta: "One active request at a time. Pause or cancel anytime.",
       price: "From £2,500 / month",
       cta: "Join the Continuum",
-      featured: false,
     },
   ],
   fallback: {

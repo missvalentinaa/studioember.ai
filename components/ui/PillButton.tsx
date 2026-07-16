@@ -4,7 +4,7 @@ import { useRef, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { clsx } from "@/lib/clsx";
 
-type Variant = "primary" | "ghost" | "dark" | "ghost-glow" | "outline-light";
+type Variant = "primary" | "ghost" | "dark" | "light" | "ghost-glow" | "outline-light";
 
 const base =
   "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium tracking-tight transition-colors duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2";
@@ -14,6 +14,8 @@ const styles: Record<Variant, string> = {
   ghost:
     "border border-hairline-2 bg-surface/60 text-ink backdrop-blur-sm hover:border-ink/25 hover:bg-surface",
   dark: "bg-ink text-canvas hover:bg-ink-soft",
+  /** Solid light pill — for a CTA sitting on a dark card. */
+  light: "bg-white text-ink hover:bg-white/90",
   /** Ghost that lights up with the animated ember gradient on hover — for a
    *  single quiet CTA that should still invite a click. */
   "ghost-glow":
