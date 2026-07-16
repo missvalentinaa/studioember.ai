@@ -7,7 +7,6 @@ import { Work } from "@/components/sections/Work";
 import { WaysToWork } from "@/components/sections/WaysToWork";
 import { AIPart } from "@/components/sections/AIPart";
 import { Process } from "@/components/sections/Process";
-import { About } from "@/components/sections/About";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -25,7 +24,6 @@ export default function Home() {
         <WaysToWork />
         <AIPart />
         <Process />
-        <About />
         <FinalCTA />
       </main>
       <Footer />

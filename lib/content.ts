@@ -13,7 +13,6 @@ export const nav = {
   links: [
     { label: "Work", href: "#work" },
     { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
   ],
   cta: { label: "Start a project", href: "#contact" },
 };
@@ -217,24 +216,8 @@ export const process = {
   ],
 };
 
-export const about = {
-  label: "About — 07",
-  kicker: "Small studio. Serious output.",
-  heading: "Built for ambitious startups.",
-  body: [
-    "Ember Studio is an independent web and AI company led by Indi & Karyn Caburian across positioning, design, development and AI systems.",
-    "The studio stays intentionally focused: direct collaboration, fewer projects, and no account-management layer between the conversation and the work.",
-    "The goal isn't to look busy. It's to build something good and ship it.",
-  ],
-  stats: [
-    { value: "1", label: "Studio, whole build" },
-    { value: "0", label: "Handoffs" },
-    { value: "1–2wk", label: "To launch" },
-  ],
-};
-
 export const finalCta = {
-  label: "Start — 08",
+  label: "Start — 07",
   heading: "Build the version people take seriously.",
   body: "Bring us the product, the temporary website, and the repetitive work your team shouldn't still be doing manually. We'll turn them into something sharper.",
   note: "Currently accepting a small number of new projects.",
@@ -256,7 +239,6 @@ export const footer = {
       links: [
         { label: "Work", href: "#work" },
         { label: "Services", href: "#services" },
-        { label: "About", href: "#about" },
         { label: "Contact", href: "#contact" },
       ],
     },
