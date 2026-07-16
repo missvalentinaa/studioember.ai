@@ -1,43 +1,134 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  type MotionStyle,
+  type MotionValue,
+} from "framer-motion";
 import { process } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Reveal } from "@/components/ui/Reveal";
 
 type Step = (typeof process.steps)[number];
 
-function TimelineNode({
+// Each step's line segment grows over GROW of the scroll range, then holds
+// flat for PAUSE before the next segment starts — a scroll-linked "pause"
+// after each step is revealed, without pinning the section.
+const GROW = 0.22;
+const PAUSE = 0.1;
+
+function stepThreshold(index: number) {
+  return GROW + index * (GROW + PAUSE);
+}
+
+function buildLineKeyframes(total: number) {
+  const input: number[] = [0];
+  const output: number[] = [0];
+  let t = 0;
+  for (let i = 0; i < total; i++) {
+    t += GROW;
+    input.push(Math.min(t, 1));
+    output.push((i + 1) / total);
+    if (i < total - 1) {
+      t += PAUSE;
+      input.push(Math.min(t, 1));
+      output.push((i + 1) / total);
+    }
+  }
+  if (input[input.length - 1] < 1) {
+    input.push(1);
+    output.push(1);
+  }
+  return { input, output };
+}
+
+/** Small white four-point sparkle, centered on a timeline orb — spins in as
+ *  the line reaches it, then fades once that step is fully revealed. Sits
+ *  above the gradient line in stacking order. */
+function FourPointStar({ style }: { style: MotionStyle }) {
+  return (
+    <motion.svg
+      viewBox="0 0 100 100"
+      className="absolute inset-0 z-10 m-auto h-2.5 w-2.5"
+      style={style}
+      aria-hidden="true"
+    >
+      <polygon fill="#fff" points="50,0 60.6,39.4 100,50 60.6,60.6 50,100 39.4,60.6 0,50 39.4,39.4" />
+    </motion.svg>
+  );
+}
+
+function TimelineRow({
   step,
   index,
-  total,
   progress,
 }: {
   step: Step;
   index: number;
-  total: number;
   progress: MotionValue<number>;
 }) {
-  const threshold = (index + 0.65) / total;
-  const scale = useTransform(progress, [threshold - 0.16, threshold], [0.45, 1], {
+  const threshold = stepThreshold(index);
+
+  const orbScale = useTransform(progress, [threshold - 0.1, threshold], [0.45, 1], {
     clamp: true,
   });
-  const opacity = useTransform(progress, [threshold - 0.16, threshold], [0.3, 1], {
+  const orbOpacity = useTransform(progress, [threshold - 0.1, threshold], [0.3, 1], {
     clamp: true,
   });
 
+  const numberGradient = useTransform(progress, [threshold - 0.03, threshold + 0.05], [0, 1], {
+    clamp: true,
+  });
+  const numberBlack = useTransform(numberGradient, (v) => 1 - v);
+
+  const starOpacity = useTransform(
+    progress,
+    [threshold - 0.02, threshold, threshold + 0.06, threshold + 0.12],
+    [0, 1, 1, 0],
+    { clamp: true },
+  );
+  const starRotate = useTransform(progress, [threshold - 0.02, threshold + 0.12], [0, 200], {
+    clamp: true,
+  });
+  const starScale = useTransform(progress, [threshold - 0.02, threshold], [0.3, 1], {
+    clamp: true,
+  });
+
+  const row = index + 1;
+
   return (
-    <div className="flex flex-col items-start">
-      <motion.span
-        className="h-4 w-4 rounded-full ring-4 ring-canvas"
-        style={{ scale, opacity, background: "var(--ember-gradient)" }}
-      />
-      <span className="mt-6 font-mono text-sm text-muted">{step.no}</span>
-      <h3 className="mt-3 text-2xl font-medium tracking-tight">{step.name}</h3>
-      <p className="mt-3 max-w-[30ch] text-ink-soft">{step.body}</p>
-    </div>
+    <>
+      <div className="col-start-1 flex justify-end" style={{ gridRow: row }}>
+        <div className="relative inline-block font-sans text-[clamp(2.75rem,6vw,4.5rem)] font-bold leading-none tracking-tight">
+          <motion.span style={{ opacity: numberBlack }}>{step.no}</motion.span>
+          <motion.span
+            className="ember-text absolute inset-0"
+            style={{ opacity: numberGradient }}
+            aria-hidden="true"
+          >
+            {step.no}
+          </motion.span>
+        </div>
+      </div>
+
+      <div className="relative z-10 col-start-2 flex justify-center pt-3" style={{ gridRow: row }}>
+        <div className="relative h-4 w-4 flex-shrink-0">
+          <motion.span
+            className="absolute inset-0 rounded-full ring-4 ring-canvas"
+            style={{ scale: orbScale, opacity: orbOpacity, background: "var(--ember-gradient)" }}
+          />
+          <FourPointStar style={{ opacity: starOpacity, rotate: starRotate, scale: starScale }} />
+        </div>
+      </div>
+
+      <div className="col-start-3 pb-2 pt-2" style={{ gridRow: row }}>
+        <h3 className="text-2xl font-medium tracking-tight">{step.name}</h3>
+        <p className="mt-3 max-w-[38ch] text-ink-soft">{step.body}</p>
+      </div>
+    </>
   );
 }
 
@@ -45,54 +136,35 @@ export function Process() {
   const trackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: trackRef,
-    offset: ["start 0.75", "end 0.55"],
+    offset: ["start 0.8", "end 0.4"],
   });
+
+  const { input, output } = buildLineKeyframes(process.steps.length);
+  const lineScale = useTransform(scrollYProgress, input, output, { clamp: true });
 
   return (
     <Section>
-      <SectionHeading label={process.label} title={process.heading} />
+      <SectionHeading label={process.label} title={process.heading} align="center" />
 
-      {/* Desktop — scroll-driven horizontal timeline */}
-      <div ref={trackRef} className="relative mt-24 hidden md:block">
-        <div className="absolute left-[7px] right-[7px] top-[7px] h-[2px] bg-hairline" />
-        <motion.div
-          className="absolute left-[7px] right-[7px] top-[7px] h-[2px] origin-left"
-          style={{ scaleX: scrollYProgress, background: "var(--ember-gradient)" }}
+      <div
+        ref={trackRef}
+        className="relative mx-auto mt-16 grid max-w-2xl grid-cols-[auto_16px_1fr] gap-x-4 gap-y-14 sm:mt-20 sm:gap-x-6 sm:gap-y-16"
+      >
+        <div
+          className="col-start-2 w-[2px] justify-self-center bg-hairline"
+          style={{ gridRow: `1 / ${process.steps.length + 1}` }}
         />
-        <div className="grid grid-cols-3 gap-10">
-          {process.steps.map((s, i) => (
-            <TimelineNode
-              key={s.no}
-              step={s}
-              index={i}
-              total={process.steps.length}
-              progress={scrollYProgress}
-            />
-          ))}
-        </div>
-      </div>
+        <motion.div
+          className="col-start-2 w-[2px] origin-top justify-self-center"
+          style={{
+            gridRow: `1 / ${process.steps.length + 1}`,
+            scaleY: lineScale,
+            background: "var(--ember-gradient)",
+          }}
+        />
 
-      {/* Mobile — stacked cards */}
-      <div className="mt-16 grid gap-px overflow-hidden rounded-[26px] border border-hairline bg-hairline md:hidden">
         {process.steps.map((s, i) => (
-          <Reveal key={s.no} delay={i * 0.1}>
-            <div className="group relative flex h-full flex-col bg-canvas p-8 transition-colors duration-300 hover:bg-surface sm:p-10">
-              <div className="flex items-center justify-between">
-                <span
-                  className="text-[3.4rem] font-light leading-none tracking-tight text-transparent"
-                  style={{ WebkitTextStroke: "1px #d9d0c6" }}
-                >
-                  {s.no}
-                </span>
-                <span
-                  className="h-2.5 w-2.5 rounded-full opacity-40 transition-opacity duration-300 group-hover:opacity-100"
-                  style={{ background: "var(--ember-gradient)" }}
-                />
-              </div>
-              <h3 className="mt-8 text-2xl font-medium tracking-tight">{s.name}</h3>
-              <p className="mt-3 text-ink-soft">{s.body}</p>
-            </div>
-          </Reveal>
+          <TimelineRow key={s.no} step={s} index={i} progress={scrollYProgress} />
         ))}
       </div>
     </Section>
