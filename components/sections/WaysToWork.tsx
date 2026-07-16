@@ -54,7 +54,7 @@ function PlanCard({ plan, delay }: { plan: Plan; delay: number }) {
       <p className={dark ? "mt-4 text-white/65" : "mt-4 text-ink-soft"}>{plan.body}</p>
 
       <span
-        className="mono-label mt-7 border-t pt-6"
+        className={dark ? "mono-label mt-5 border-t pt-5" : "mono-label mt-7 border-t pt-6"}
         style={
           dark
             ? { color: "rgba(255,255,255,0.4)", borderColor: "rgba(255,255,255,0.12)" }
@@ -63,7 +63,13 @@ function PlanCard({ plan, delay }: { plan: Plan; delay: number }) {
       >
         {plan.includesLabel}
       </span>
-      <ul className="mt-3 grid grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2">
+      <ul
+        className={
+          dark
+            ? "mt-2 mb-6 grid grid-cols-1 gap-x-4 gap-y-1.5 sm:grid-cols-2"
+            : "mt-3 grid grid-cols-1 gap-x-4 gap-y-2.5 sm:grid-cols-2"
+        }
+      >
         {plan.includes.map((item) => (
           <li
             key={item}
