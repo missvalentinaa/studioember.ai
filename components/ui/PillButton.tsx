@@ -4,10 +4,10 @@ import { useRef, type ReactNode } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { clsx } from "@/lib/clsx";
 
-type Variant = "primary" | "ghost" | "dark" | "ghost-glow";
+type Variant = "primary" | "ghost" | "dark" | "ghost-glow" | "outline-light";
 
 const base =
-  "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium tracking-tight transition-colors duration-200 will-change-transform focus-visible:outline-none";
+  "group relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[0.95rem] font-medium tracking-tight transition-colors duration-200 will-change-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/40 focus-visible:ring-offset-2";
 
 const styles: Record<Variant, string> = {
   primary: "text-white shadow-[0_8px_30px_-8px_rgba(255,107,53,0.6)]",
@@ -18,6 +18,10 @@ const styles: Record<Variant, string> = {
    *  single quiet CTA that should still invite a click. */
   "ghost-glow":
     "border border-hairline-2 bg-surface/60 text-ink backdrop-blur-sm transition-colors duration-500 hover:border-transparent hover:text-white",
+  /** Bordered pill tuned for sitting directly on a colourful/gradient
+   *  surface — near-transparent fill so the gradient shows through. */
+  "outline-light":
+    "border border-ink/20 bg-white/15 text-ink backdrop-blur-sm hover:border-ink/35 hover:bg-white/30",
 };
 
 type PillButtonProps = {

@@ -54,7 +54,7 @@ export function ContactForm() {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-[28px] border border-hairline bg-surface/70 p-6 backdrop-blur-xl sm:p-8">
+    <div className="relative overflow-hidden rounded-[36px] border border-hairline bg-surface/90 p-6 backdrop-blur-xl sm:p-10">
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div
