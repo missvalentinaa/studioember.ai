@@ -91,7 +91,11 @@ function PlanCard({ plan, delay }: { plan: Plan; delay: number }) {
       </ul>
 
       <div
-        className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t pt-6 sm:pt-8"
+        className={
+          dark
+            ? "mt-auto flex flex-wrap items-center justify-between gap-4 border-t pt-6 sm:pt-8"
+            : "mt-6 flex flex-wrap items-center justify-between gap-4 border-t pt-6 sm:mt-auto sm:pt-8"
+        }
         style={dark ? { borderColor: "rgba(255,255,255,0.12)" } : { borderColor: "var(--color-hairline)" }}
       >
         <div>

@@ -57,7 +57,6 @@ function ScrollHeroMotion() {
   const frame = useTransform(p, [0.03, 0.78], [0, FRAME_COUNT - 1], { clamp: true });
 
   // Supporting content clears early so the heading stands alone for the climax.
-  const eyebrowOpacity = useTransform(p, [0.02, 0.16], [1, 0]);
   const supportOpacity = useTransform(p, [0.04, 0.24], [1, 0]);
   const supportY = useTransform(p, [0.04, 0.24], [0, 34]);
   const hintOpacity = useTransform(p, [0.0, 0.12], [1, 0]);
@@ -118,12 +117,6 @@ function ScrollHeroMotion() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center text-center">
-          <motion.div style={{ opacity: eyebrowOpacity }} className="mb-8">
-            <div className="reveal-rise inline-flex rounded-full border border-hairline bg-surface/60 px-4 py-1.5 backdrop-blur-sm">
-              <MonoLabel>{hero.eyebrow}</MonoLabel>
-            </div>
-          </motion.div>
-
           <motion.div
             style={{ y: headingY, scale: headingScale, opacity: headingOpacity }}
             className="relative"
@@ -206,9 +199,6 @@ function StaticHero() {
         <div className="absolute inset-0" style={{ background: FRAME_FEATHER }} />
       </div>
       <div className="relative z-10 flex flex-col items-center text-center">
-        <div className="mb-8 rounded-full border border-hairline bg-surface/60 px-4 py-1.5 backdrop-blur-sm">
-          <MonoLabel>{hero.eyebrow}</MonoLabel>
-        </div>
         <HeadingLines />
         <p className="mt-8 max-w-[54ch] text-balance text-lg text-ink-soft sm:text-xl">
           {hero.body}

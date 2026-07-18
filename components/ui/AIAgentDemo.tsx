@@ -40,7 +40,9 @@ function Message({
       <div
         className={clsx(
           "max-w-[85%] rounded-2xl leading-relaxed shadow-sm",
-          compact ? "px-3.5 py-2.5 text-[0.78rem]" : "px-[1.125rem] py-3.5 text-[0.95rem]",
+          compact
+            ? "px-2.5 py-2 text-[0.68rem] sm:px-3.5 sm:py-2.5 sm:text-[0.78rem]"
+            : "px-[1.125rem] py-3.5 text-[0.95rem]",
           step.from === "Customer"
             ? "rounded-tr-sm bg-white text-ink-soft"
             : "rounded-tl-sm bg-white text-ink",
@@ -78,7 +80,7 @@ export function AIAgentDemo({ compact = false }: { compact?: boolean }) {
     <div
       className={clsx(
         "relative overflow-hidden rounded-[26px] border border-hairline bg-surface/80 shadow-[0_40px_80px_-40px_rgba(26,22,20,0.35)] backdrop-blur-sm",
-        compact ? "p-4 sm:p-5" : "p-7 sm:p-10",
+        compact ? "p-3 sm:p-5" : "p-7 sm:p-10",
       )}
     >
       <div className="flex items-center justify-between gap-2">
@@ -121,7 +123,7 @@ export function AIAgentDemo({ compact = false }: { compact?: boolean }) {
       <div
         className={clsx(
           "relative overflow-hidden rounded-2xl border border-hairline bg-surface-2/50",
-          compact ? "mt-3 h-[80px] p-3.5" : "mt-8 h-[180px] p-5 sm:h-[160px] sm:p-6",
+          compact ? "mt-3 h-[96px] p-2.5 sm:h-[80px] sm:p-3.5" : "mt-8 h-[180px] p-5 sm:h-[160px] sm:p-6",
         )}
       >
         <Message key={active} step={step} compact={compact} />

@@ -25,7 +25,7 @@ export function Nav() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         className={clsx(
-          "flex w-full max-w-5xl items-center justify-between rounded-full border py-2 pl-4 pr-2 transition-all duration-300 sm:pl-5",
+          "relative z-50 flex w-full max-w-5xl items-center justify-between rounded-full border py-2 pl-4 pr-2 transition-all duration-300 sm:pl-5",
           scrolled
             ? "border-hairline bg-canvas/80 shadow-[0_10px_40px_-24px_rgba(26,22,20,0.45)] backdrop-blur-xl"
             : "border-transparent bg-canvas/20 backdrop-blur-md",
@@ -86,30 +86,38 @@ export function Nav() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute left-4 right-4 top-[76px] z-50 rounded-3xl border border-hairline bg-canvas/95 p-3 shadow-[0_30px_60px_-30px_rgba(26,22,20,0.4)] backdrop-blur-xl md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-40 bg-canvas/90 backdrop-blur-2xl md:hidden"
           >
-            {nav.links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block rounded-2xl px-4 py-3.5 text-lg text-ink transition-colors hover:bg-surface-2"
-              >
-                {l.label}
-              </a>
-            ))}
-            <a
-              href={nav.cta.href}
-              onClick={() => setOpen(false)}
-              className="mt-1 block rounded-2xl px-4 py-3.5 text-center text-lg font-medium text-white"
-              style={{ background: "var(--ember-gradient)" }}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.3, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+              className="flex h-full flex-col items-center justify-center gap-3 px-6"
             >
-              {nav.cta.label}
-            </a>
+              {nav.links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="block rounded-2xl px-4 py-3.5 text-center text-2xl text-ink transition-colors hover:bg-surface-2"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <a
+                href={nav.cta.href}
+                onClick={() => setOpen(false)}
+                className="mt-4 block w-full max-w-xs rounded-full px-6 py-4 text-center text-lg font-medium text-white"
+                style={{ background: "var(--ember-gradient)" }}
+              >
+                {nav.cta.label}
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

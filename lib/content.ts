@@ -18,7 +18,6 @@ export const nav = {
 };
 
 export const hero = {
-  eyebrow: "For founders between \"we just raised\" and \"we look like it\"",
   lines: ["Look funded.", "Operate like it too."],
   emphasis: "funded",
   body: "We build the premium website and the AI agents you don't have time for — before your raise, your launch, or your next big hire.",
