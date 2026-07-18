@@ -24,7 +24,6 @@ export function WhatWeBuild() {
   return (
     <Section id="services">
       <SectionHeading
-        label={whatWeBuild.label}
         title={
           <>
             Premium web. <span className="ember-text">Useful AI.</span>

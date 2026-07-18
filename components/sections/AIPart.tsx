@@ -18,7 +18,6 @@ export function AIPart() {
       </div>
 
       <SectionHeading
-        label={aiPart.label}
         title={
           <>
             Software that <span className="ember-text">does something.</span>
@@ -28,10 +27,10 @@ export function AIPart() {
         align="center"
       />
 
-      {/* Laptop mockup with the agent card sat on the screen — large viewports only,
-          since the screen area gets too small to hold readable text below ~1024px. */}
+      {/* Laptop mockup with the agent card sat on the screen — visible at every
+          viewport, scaling down with the image itself instead of disappearing. */}
       <Reveal delay={0.08}>
-        <div className="relative mx-auto mt-8 hidden w-full max-w-2xl lg:block">
+        <div className="relative mx-auto mt-8 w-full max-w-2xl @container sm:mt-12">
           <Image
             src="/software/laptop-gradient-screen.png"
             alt="Laptop displaying a soft gradient screen"
@@ -47,31 +46,6 @@ export function AIPart() {
             <div className="w-[82%] max-w-[420px]">
               <AIAgentDemo compact />
             </div>
-          </div>
-        </div>
-      </Reveal>
-
-      <Reveal delay={0.08}>
-        <div className="relative mx-auto mt-16 max-w-2xl lg:hidden">
-          <div
-            aria-hidden="true"
-            className="animate-gradient-flow pointer-events-none absolute -inset-4 rounded-[40px] opacity-70 blur-2xl sm:-inset-6"
-            style={{
-              backgroundImage:
-                "linear-gradient(120deg, #9640a8 0%, #cb72b8 25%, #f9a074 50%, #f4c0c7 75%, #9640a8 100%)",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="animate-gradient-flow pointer-events-none absolute -inset-2 rounded-[36px] opacity-90"
-            style={{
-              backgroundImage:
-                "linear-gradient(120deg, #9640a8 0%, #cb72b8 25%, #f9a074 50%, #f4c0c7 75%, #9640a8 100%)",
-              animationDuration: "22s",
-            }}
-          />
-          <div className="relative">
-            <AIAgentDemo />
           </div>
         </div>
       </Reveal>

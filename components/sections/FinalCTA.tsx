@@ -11,7 +11,6 @@ import {
 } from "framer-motion";
 import { finalCta } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
-import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Reveal } from "@/components/ui/Reveal";
 import { ContactForm } from "@/components/ui/ContactForm";
 
@@ -107,12 +106,8 @@ export function FinalCTA() {
               backgroundPositionX: cardBgX,
             }}
           >
-            <MonoLabel className="justify-center !text-ink/55" dot>
-              {finalCta.label}
-            </MonoLabel>
-
             <h2
-              className="display mx-auto mt-6 max-w-[18ch] text-[clamp(2.2rem,5.4vw,3.8rem)] text-white"
+              className="display mx-auto max-w-[18ch] text-[clamp(2.2rem,5.4vw,3.8rem)] text-white"
               style={{ fontWeight: 600 }}
             >
               {finalCta.heading}

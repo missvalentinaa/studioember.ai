@@ -152,7 +152,7 @@ export function Work() {
   return (
     <Section id="work">
       <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
-        <SectionHeading label={work.label} title={work.heading} className="max-w-2xl" />
+        <SectionHeading title={work.heading} className="max-w-2xl" />
         <Reveal delay={0.1}>
           <p className="max-w-[36ch] text-ink-soft sm:text-right">{work.body}</p>
         </Reveal>

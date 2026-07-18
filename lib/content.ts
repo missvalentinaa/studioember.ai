@@ -18,17 +18,16 @@ export const nav = {
 };
 
 export const hero = {
-  eyebrow: "A web & AI studio for startups",
+  eyebrow: "For founders between \"we just raised\" and \"we look like it\"",
   lines: ["Look funded.", "Operate like it too."],
   emphasis: "funded",
-  body: "We design premium startup websites and build AI agents that handle real work. One studio for strategy, design, code and AI.",
+  body: "We build the premium website and the AI agents you don't have time for — before your raise, your launch, or your next big hire.",
   primary: { label: "Start a project", href: "#contact" },
   secondary: { label: "See the work", href: "#work" },
   note: "Built with taste. Shipped at speed.",
 };
 
 export const whatWeBuild = {
-  label: "What we build — 01",
   kicker: "Two things. One craft: building.",
   heading: "Premium web. Useful AI.",
   body: "We help startups become clearer on the outside and more capable on the inside.",
@@ -41,20 +40,25 @@ export const whatWeBuild = {
     },
     {
       tag: "AI agents",
-      title: "Agents that do real work.",
+      title: "Agents that take real actions, not just answer questions.",
       body: "Support, onboarding and workflow agents that connect to your tools, take action, and remove repetitive work.",
-      points: ["Connected to your stack", "Takes approved actions", "Not a bottom-right chatbot"],
+      points: [
+        "Qualifies leads before they hit your calendar",
+        "Handles customer enquiries end-to-end",
+        "Follows up prospects automatically",
+        "Automates the repetitive ops your team is still doing by hand",
+        "Lets a three-person team operate like a fifteen-person one",
+      ],
     },
   ],
   outcomes: [
     { value: "1–2wk", label: "From kickoff to a shipped, premium site" },
-    { value: "70%", label: "Fewer repetitive tickets once an agent is live" },
-    { value: "0", label: "Handoffs between strategy, design and code" },
+    { value: "70%", label: "Less manual busywork once your first agent ships" },
+    { value: "0", label: "Handoffs between strategy, design, code and AI" },
   ],
 };
 
 export const problem = {
-  label: "The problem — 02",
   headingA: "Your product has moved on.",
   headingB: "Your website has not.",
   lead: "The product is good. The website still sounds like every other startup.",
@@ -63,14 +67,13 @@ export const problem = {
     "The copy could belong to anyone.",
     "The team is manually doing work software should handle.",
   ],
-  close: "That gap gets expensive when you're launching, raising, or trying to win serious customers.",
+  close: "That gap gets expensive when you're closing a round, launching publicly, or trying to convince someone good to join a three-person team.",
   resolve: "Ember closes it.",
 };
 
 export const work = {
-  label: "Selected work — 03",
   heading: "Startups, made harder to ignore.",
-  body: "A selection of websites, brands and AI systems built for early-stage technology companies.",
+  body: "A selection of websites, brands and AI systems built for pre-seed and seed founders who've outgrown how they look.",
   projects: [
     {
       index: "01",
@@ -103,8 +106,7 @@ export const work = {
 };
 
 export const waysToWork = {
-  label: "Ways to work — 04",
-  heading: "Two ways to look Series-A ready.",
+  heading: "Two ways to look like you've already raised the round.",
   plans: [
     {
       name: "Launch Sprint",
@@ -112,7 +114,7 @@ export const waysToWork = {
       includesLabel: "You get:",
       theme: "light",
       title: "Go from nearly ready to properly launched.",
-      body: "A focused engagement for startups preparing to launch, raise, or upgrade their presence.",
+      body: "A focused sprint to get your website, brand and story in front of investors and customers — before your round closes, not after.",
       includes: [
         "Positioning and messaging",
         "Brand direction",
@@ -152,10 +154,9 @@ export const waysToWork = {
 };
 
 export const aiPart = {
-  label: "The AI part — 05",
   kicker: "What we mean by AI agents",
   heading: "Software that does something.",
-  body: "We build agents around specific jobs inside your product or company.",
+  body: "We build agents around the specific, repetitive work your team is already doing manually — qualifying a lead, resolving a support ticket, onboarding a new user.",
   cards: [
     {
       tag: "Support",
@@ -170,8 +171,8 @@ export const aiPart = {
       body: "Move data between tools, qualify requests, update records, and complete repetitive internal tasks.",
     },
   ],
-  ruleA: "If it only talks, it's probably a chatbot.",
-  ruleB: "If it completes useful work, it's getting closer.",
+  ruleA: "If it only talks, it's a chatbot.",
+  ruleB: "If it finishes the task, it's an agent.",
   demo: {
     caption: "A support agent, mid-conversation",
     steps: [
@@ -195,29 +196,27 @@ export const aiPart = {
 };
 
 export const process = {
-  label: "How it works — 06",
   heading: "A simple process.",
   steps: [
     {
       no: "01",
       name: "Define",
-      body: "We get clear on the product, audience, positioning, and what the project actually needs to achieve.",
+      body: "Week 0. Positioning, brand direction, what the site and agent need to do.",
     },
     {
       no: "02",
       name: "Build",
-      body: "We design, write and develop the website or AI system as one connected piece of work.",
+      body: "Week 1. Designed and built, AI-accelerated — not handed between departments.",
     },
     {
       no: "03",
       name: "Ship",
-      body: "We test, refine and launch — before another meeting appears.",
+      body: "Week 2. Live, deployed, ready for investors and customers to see.",
     },
   ],
 };
 
 export const finalCta = {
-  label: "Start — 07",
   heading: "Build the version people take seriously.",
   body: "Bring us the product, the temporary website, and the repetitive work your team shouldn't still be doing manually. We'll turn them into something sharper.",
   note: "Currently accepting a small number of new projects.",

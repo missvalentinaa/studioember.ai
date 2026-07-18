@@ -6,7 +6,7 @@
 @theme {
   /* Fonts (CSS vars injected by next/font) */
   --font-sans: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+  --font-mono: var(--font-general-sans), ui-sans-serif, system-ui, sans-serif;
 
   /* Surfaces */
   --color-canvas: #fbf9f6;

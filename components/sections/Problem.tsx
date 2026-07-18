@@ -3,7 +3,6 @@
 import { motion, type Variants } from "framer-motion";
 import { problem } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
-import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { EmberOrb } from "@/components/ui/EmberOrb";
 
@@ -40,11 +39,8 @@ export function Problem() {
 
       <div className="relative grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
-          <Reveal>
-            <MonoLabel>{problem.label}</MonoLabel>
-          </Reveal>
           <Reveal delay={0.05}>
-            <h2 className="display mt-6 text-[clamp(2.2rem,5.6vw,4rem)]">
+            <h2 className="display text-[clamp(2.2rem,5.6vw,4rem)]">
               <span className="block">{problem.headingA}</span>
               <span className="block text-faint">{problem.headingB}</span>
             </h2>

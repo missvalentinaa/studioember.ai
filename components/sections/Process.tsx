@@ -144,7 +144,7 @@ export function Process() {
 
   return (
     <Section>
-      <SectionHeading label={process.label} title={process.heading} align="center" />
+      <SectionHeading title={process.heading} align="center" />
 
       <div
         ref={trackRef}

@@ -1,15 +1,12 @@
-import { MonoLabel } from "@/components/ui/MonoLabel";
 import { Reveal } from "@/components/ui/Reveal";
 import { clsx } from "@/lib/clsx";
 
 export function SectionHeading({
-  label,
   title,
   lead,
   align = "left",
   className,
 }: {
-  label: string;
   title: React.ReactNode;
   lead?: React.ReactNode;
   align?: "left" | "center";
@@ -23,9 +20,6 @@ export function SectionHeading({
         className,
       )}
     >
-      <Reveal>
-        <MonoLabel>{label}</MonoLabel>
-      </Reveal>
       <Reveal delay={0.05}>
         <h2 className="display text-[clamp(2rem,5.2vw,3.6rem)] max-w-[20ch]">{title}</h2>
       </Reveal>

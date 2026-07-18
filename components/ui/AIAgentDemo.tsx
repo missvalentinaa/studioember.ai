@@ -78,19 +78,24 @@ export function AIAgentDemo({ compact = false }: { compact?: boolean }) {
     <div
       className={clsx(
         "relative overflow-hidden rounded-[26px] border border-hairline bg-surface/80 shadow-[0_40px_80px_-40px_rgba(26,22,20,0.35)] backdrop-blur-sm",
-        compact ? "p-5 sm:p-6" : "p-7 sm:p-10",
+        compact ? "p-4 sm:p-5" : "p-7 sm:p-10",
       )}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <span
-          className={clsx(
-            "mono-label whitespace-nowrap",
-            compact && "!text-[0.6rem] !tracking-[0.12em]",
-          )}
+          className="mono-label min-w-0 whitespace-nowrap"
+          style={
+            compact
+              ? {
+                  fontSize: "clamp(0.16rem, calc(2.22cqw - 3.4px), 0.6rem)",
+                  letterSpacing: "0.06em",
+                }
+              : undefined
+          }
         >
           {aiPart.demo.caption}
         </span>
-        <div className="flex items-center gap-2">
+        <div className={clsx("flex shrink-0 items-center", compact ? "gap-1" : "gap-2")}>
           {steps.map((s, i) => (
             <button
               key={s.status}
@@ -98,12 +103,13 @@ export function AIAgentDemo({ compact = false }: { compact?: boolean }) {
               onClick={() => goTo(i)}
               aria-label={`Show step: ${s.status}`}
               aria-current={i === active}
-              className="p-1"
+              className={compact ? "p-0.5" : "p-1"}
             >
               <span
-                className="block h-2 rounded-full transition-all duration-300"
+                className="block rounded-full transition-all duration-300"
                 style={{
-                  width: i === active ? "24px" : "8px",
+                  height: compact ? "6px" : "8px",
+                  width: i === active ? (compact ? "16px" : "24px") : compact ? "6px" : "8px",
                   background: i === active ? "var(--ember-gradient)" : "var(--color-hairline-2)",
                 }}
               />
@@ -115,13 +121,13 @@ export function AIAgentDemo({ compact = false }: { compact?: boolean }) {
       <div
         className={clsx(
           "relative overflow-hidden rounded-2xl border border-hairline bg-surface-2/50",
-          compact ? "mt-4 h-[104px] p-4" : "mt-8 h-[180px] p-5 sm:h-[160px] sm:p-6",
+          compact ? "mt-3 h-[80px] p-3.5" : "mt-8 h-[180px] p-5 sm:h-[160px] sm:p-6",
         )}
       >
         <Message key={active} step={step} compact={compact} />
       </div>
 
-      <div className={clsx("flex items-center justify-between", compact ? "mt-4" : "mt-6")}>
+      <div className={clsx("flex items-center justify-between", compact ? "mt-3" : "mt-6")}>
         <span
           className={clsx(
             "flex items-center gap-2 font-medium text-ink",

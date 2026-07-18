@@ -147,7 +147,7 @@ export function WaysToWork() {
 
   return (
     <Section>
-      <SectionHeading label={waysToWork.label} title={waysToWork.heading} align="center" />
+      <SectionHeading title={waysToWork.heading} align="center" />
 
       <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:mt-16 sm:grid-cols-2">
         <PlanCard plan={launchSprint} delay={0} />

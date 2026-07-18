@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { MotionProvider } from "@/components/ui/MotionProvider";
 import "./globals.css";
@@ -15,13 +14,6 @@ const generalSans = localFont({
     { path: "./fonts/GeneralSans-600.woff2", weight: "600", style: "normal" },
     { path: "./fonts/GeneralSans-700.woff2", weight: "700", style: "normal" },
   ],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -63,7 +55,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${generalSans.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={generalSans.variable}>
       <body>
         <a
           href="#main"
