@@ -26,7 +26,7 @@ export function AIReplyCard() {
           You have to be really smart to use this…
         </div>
         <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white px-3.5 py-2 text-[0.8rem] text-ink-soft shadow-sm">
-          This is the perfect comment I&apos;ve seen all week
+          This is the most perfect comment I&apos;ve seen all week
         </div>
       </div>
 
