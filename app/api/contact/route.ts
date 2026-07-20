@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
+import { createClient } from "@supabase/supabase-js";
+import { Resend } from "resend";
 
 /**
  * Contact inquiry handler.
  *
- * Out of the box this validates + logs the submission and returns 200 so the
- * form works with zero configuration. To actually deliver mail, drop in a
- * provider below (Resend example commented) and set the env vars.
+ * Stores every submission in Supabase (`contact_submissions`) and emails a
+ * notification via Resend so we can follow up. Requires SUPABASE_URL,
+ * SUPABASE_ANON_KEY, and RESEND_API_KEY to be set (see .env.example).
  */
 export async function POST(request: Request) {
   let data: Record<string, unknown>;
@@ -25,26 +27,38 @@ export async function POST(request: Request) {
   const inquiry = {
     name,
     email,
-    company: String(data.company || "").trim(),
-    projectType: String(data.projectType || "").trim(),
-    message: String(data.message || "").trim(),
-    receivedAt: new Date().toISOString(),
+    company: String(data.company || "").trim() || null,
+    project_type: String(data.projectType || "").trim() || null,
+    message: String(data.message || "").trim() || null,
   };
 
-  // Visible in server logs during development.
-  console.log("[contact] new inquiry:", inquiry);
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
-  /* --- To send real email, install `resend` and uncomment: -------------
-  import { Resend } from "resend";
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  await resend.emails.send({
-    from: "Ember Studio <hello@studioember.ai>",
-    to: "hello@studioember.ai",
-    replyTo: email,
-    subject: `New inquiry — ${name}${inquiry.company ? ` (${inquiry.company})` : ""}`,
-    text: `${inquiry.projectType}\n\n${inquiry.message}\n\n${email}`,
-  });
-  ---------------------------------------------------------------------- */
+  if (supabaseUrl && supabaseAnonKey) {
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
+    const { error } = await supabase.from("contact_submissions").insert(inquiry);
+    if (error) console.error("[contact] supabase insert failed:", error.message);
+  } else {
+    console.warn("[contact] Supabase env vars missing; skipping storage. Inquiry:", inquiry);
+  }
+
+  if (process.env.RESEND_API_KEY) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    try {
+      await resend.emails.send({
+        from: process.env.CONTACT_FROM_EMAIL || "Ember Studio <onboarding@resend.dev>",
+        to: process.env.CONTACT_TO_EMAIL || "hello@studioember.ai",
+        replyTo: email,
+        subject: `New inquiry — ${name}${inquiry.company ? ` (${inquiry.company})` : ""}`,
+        text: `${inquiry.project_type || ""}\n\n${inquiry.message || ""}\n\n${email}`,
+      });
+    } catch (err) {
+      console.error("[contact] resend send failed:", err);
+    }
+  } else {
+    console.warn("[contact] RESEND_API_KEY missing; skipping email. Inquiry:", inquiry);
+  }
 
   return NextResponse.json({ ok: true });
 }
