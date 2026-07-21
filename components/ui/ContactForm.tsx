@@ -221,6 +221,13 @@ export function ContactForm() {
                 </span>
               )}
             </div>
+            <p className="text-xs text-muted">
+              We&apos;ll only use this to reply to your enquiry. See our{" "}
+              <a className="underline underline-offset-2 hover:text-ink" href="/privacy">
+                privacy policy
+              </a>
+              .
+            </p>
           </motion.form>
         )}
       </AnimatePresence>

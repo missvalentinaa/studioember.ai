@@ -229,6 +229,31 @@ export const finalCta = {
   ],
 };
 
+export const cookieConsent = {
+  heading: "We use minimal cookies.",
+  body: "Essential cookies keep the site running. We'd also like to use analytics cookies to understand how the site is used — only with your OK.",
+  accept: "Accept all",
+  reject: "Reject non-essential",
+  manage: "Manage preferences",
+  save: "Save preferences",
+  policyHref: "/privacy",
+  policyLabel: "Privacy policy",
+  categories: [
+    {
+      key: "essential" as const,
+      title: "Essential",
+      body: "Required for the site and contact form to work. Always on.",
+      locked: true,
+    },
+    {
+      key: "analytics" as const,
+      title: "Analytics",
+      body: "Helps us understand site traffic. Off unless you switch it on.",
+      locked: false,
+    },
+  ],
+};
+
 export const footer = {
   blurb: "Premium websites and AI agents for startups.",
   columns: [
@@ -239,6 +264,10 @@ export const footer = {
         { label: "Services", href: "#services" },
         { label: "Contact", href: "#contact" },
       ],
+    },
+    {
+      title: "Legal",
+      links: [{ label: "Privacy policy", href: "/privacy" }],
     },
   ],
 };

@@ -1,6 +1,9 @@
+"use client";
+
 import { footer, site } from "@/lib/content";
 import { Logo } from "@/components/ui/Logo";
 import { EmberOrb } from "@/components/ui/EmberOrb";
+import { openConsentManager } from "@/lib/consent";
 
 export function Footer() {
   return (
@@ -55,7 +58,16 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-hairline py-8 text-sm text-muted sm:flex-row">
           <span>© {new Date().getFullYear()} Ember Studio. All rights reserved.</span>
-          <span className="font-mono text-xs tracking-wide">{site.domain}</span>
+          <div className="flex items-center gap-5">
+            <button
+              type="button"
+              onClick={openConsentManager}
+              className="transition-colors duration-200 hover:text-ink"
+            >
+              Manage cookies
+            </button>
+            <span className="font-mono text-xs tracking-wide">{site.domain}</span>
+          </div>
         </div>
       </div>
     </footer>

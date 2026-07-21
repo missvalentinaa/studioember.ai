@@ -169,7 +169,7 @@ function ScrollHeroMotion() {
         {/* scroll hint */}
         <motion.div
           style={{ opacity: hintOpacity }}
-          className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
+          className="absolute bottom-16 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
         >
           <span className="mono-label" style={{ fontSize: "0.62rem" }}>
             Scroll

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { MotionProvider } from "@/components/ui/MotionProvider";
+import { CookieConsent } from "@/components/ui/CookieConsent";
 import "./globals.css";
 
 const generalSans = localFont({
@@ -67,6 +68,7 @@ export default function RootLayout({
           <CursorGlow />
           <div className="grain" aria-hidden="true" />
           {children}
+          <CookieConsent />
         </MotionProvider>
       </body>
     </html>
