@@ -40,7 +40,7 @@ export const whatWeBuild = {
     {
       tag: "AI agents",
       title: "Agents that take real actions, not just answer questions.",
-      body: "Support, onboarding and workflow agents that connect to your tools, take action, and remove repetitive work.",
+      body: "Support, onboarding and workflow agents that connect to your tools, take action and remove repetitive work.",
       points: [
         "Qualifies leads before they hit your calendar",
         "Handles customer enquiries end-to-end",
@@ -238,14 +238,6 @@ export const footer = {
         { label: "Work", href: "#work" },
         { label: "Services", href: "#services" },
         { label: "Contact", href: "#contact" },
-      ],
-    },
-    {
-      title: "Social",
-      links: [
-        { label: "Instagram", href: "https://instagram.com" },
-        { label: "LinkedIn", href: "https://linkedin.com" },
-        { label: "X", href: "https://x.com" },
       ],
     },
   ],

@@ -23,10 +23,10 @@ export function AIReplyCard() {
       {/* incoming bubbles */}
       <div className="flex flex-col items-end gap-2">
         <div className="max-w-[80%] rounded-2xl rounded-tr-sm bg-white px-3.5 py-2 text-[0.8rem] text-ink-soft shadow-sm">
-          You have to be really smart to use this…
+          My invoice from March never synced to Xero
         </div>
         <div className="max-w-[85%] rounded-2xl rounded-tr-sm bg-white px-3.5 py-2 text-[0.8rem] text-ink-soft shadow-sm">
-          This is the most perfect comment I&apos;ve seen all week
+          Can you add Ethan as an admin on my account?
         </div>
       </div>
 
